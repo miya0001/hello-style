@@ -1,0 +1,28 @@
+$name: Geolonia Basic
+
+$background: rgba(254, 254, 254, 1)
+
+# カスタマイズここまで
+
+version: 8
+name: $name
+metadata: {}
+sources:
+  oceanus:
+    type: vector
+    url: https://tileserver.geolonia.com/oceanus/tiles.json?key=YOUR-API-KEY
+  geolonia-water:
+    type: vector
+    url: https://tileserver.geolonia.com/water/tiles.json?key=YOUR-API-KEY
+  geolonia:
+    type: vector
+    minzoom: 8
+    url: https://tileserver.geolonia.com/v2/tiles.json?key=YOUR-API-KEY
+sprite: https://geoloniamaps.github.io/basic/basic
+glyphs: https://glyphs.geolonia.com/{fontstack}/{range}.pbf
+layers:
+  - !!inc/file layers/background.yml
+  - !!inc/file layers/landcover-grass.yml
+  - !!inc/file layers/landcover-wood.yml
+  - !!inc/file layers/landcover-grass-park.yml
+  - !!inc/file layers/water.yml

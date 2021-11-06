@@ -1,0 +1,111 @@
+{
+  "version": 8,
+  "name": "Geolonia Basic",
+  "metadata": {},
+  "sources": {
+    "oceanus": {
+      "type": "vector",
+      "url": "https://tileserver.geolonia.com/oceanus/tiles.json?key=YOUR-API-KEY"
+    },
+    "geolonia-water": {
+      "type": "vector",
+      "url": "https://tileserver.geolonia.com/water/tiles.json?key=YOUR-API-KEY"
+    },
+    "geolonia": {
+      "type": "vector",
+      "minzoom": 8,
+      "url": "https://tileserver.geolonia.com/v2/tiles.json?key=YOUR-API-KEY"
+    }
+  },
+  "sprite": "https://geoloniamaps.github.io/basic/basic",
+  "glyphs": "https://glyphs.geolonia.com/{fontstack}/{range}.pbf",
+  "layers": [
+    {
+      "id": "background",
+      "type": "background",
+      "paint": {
+        "background-color": "rgba(254, 254, 254, 1)"
+      }
+    },
+    {
+      "id": "landcover-grass",
+      "type": "fill",
+      "source": "geolonia",
+      "source-layer": "landcover",
+      "filter": [
+        "==",
+        "class",
+        "grass"
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": "#d8e8c8",
+        "fill-opacity": 1
+      }
+    },
+    {
+      "id": "landcover-wood",
+      "type": "fill",
+      "source": "geolonia",
+      "source-layer": "landcover",
+      "filter": [
+        "==",
+        "class",
+        "wood"
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": "#6a4",
+        "fill-opacity": 0.2,
+        "fill-outline-color": "hsla(0, 0%, 0%, 0.03)",
+        "fill-antialias": {
+          "base": 1,
+          "stops": [
+            [
+              0,
+              false
+            ],
+            [
+              9,
+              true
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "landcover-grass-park",
+      "type": "fill",
+      "source": "geolonia",
+      "source-layer": "park",
+      "filter": [
+        "==",
+        "class",
+        "public_park"
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": "#d8e8c8",
+        "fill-opacity": 0.8
+      }
+    },
+    {
+      "id": "water",
+      "type": "fill",
+      "source": "geolonia-water",
+      "source-layer": "water",
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": "rgba(152, 209, 252, 1)"
+      }
+    }
+  ]
+}
